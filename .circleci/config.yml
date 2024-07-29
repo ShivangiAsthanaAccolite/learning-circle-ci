@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - node/install-packages:
-          pkg-manager: npm
+          pkg-manager: npm --legacy-peer-deps
       - run:
           name: Run tests
           command: npm test --passWithNoTests
@@ -20,7 +20,7 @@ jobs:
     steps:
       - checkout
       - node/install-packages:
-          pkg-manager: npm
+          pkg-manager: npm --legacy-peer-deps
       - run:
           command: npm run build
       - run:
