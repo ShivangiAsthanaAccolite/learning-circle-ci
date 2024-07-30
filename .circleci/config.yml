@@ -70,8 +70,7 @@ jobs:
           command: npm install --legacy-peer-deps
       - run:
           name: Run tests
-          command: |
-            NODE_OPTIONS="--trace-deprecation" npx vitest run || true
+          command: ./node_modules/.bin/vitest run
       - store_test_results:
           path: ./test-results
 workflows:

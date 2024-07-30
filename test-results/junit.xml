@@ -1,54 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="4" failures="4" errors="0" time="0.852">
-    <testsuite name="src/App.test.js" timestamp="2024-07-30T10:42:05.834Z" hostname="IN-KA-F220DE" tests="1" failures="1" errors="0" skipped="0" time="0">
-        <testcase classname="src/App.test.js" name="src/App.test.js" time="0">
-            <failure message="Expression expected" type="Error">
-Error: Expression expected
- ❯ getRollupError node_modules/vite/node_modules/rollup/dist/es/shared/parseAst.js:392:41
- ❯ convertProgram node_modules/vite/node_modules/rollup/dist/es/shared/parseAst.js:1056:26
- ❯ parseAstAsync node_modules/vite/node_modules/rollup/dist/es/shared/parseAst.js:1910:93
- ❯ ssrTransformScript node_modules/vite/dist/node/chunks/dep-mCdpKltl.js:52060:11
-
-            </failure>
+<testsuites name="vitest tests" tests="3" failures="0" errors="0" time="0.946">
+    <testsuite name="src/App.test.tsx" timestamp="2024-07-30T11:11:29.932Z" hostname="IN-KA-F220DE" tests="1" failures="0" errors="0" skipped="0" time="0.022">
+        <testcase classname="src/App.test.tsx" name="renders learn react link" time="0.021">
         </testcase>
     </testsuite>
-    <testsuite name="src/components/Home.test.js" timestamp="2024-07-30T10:42:05.839Z" hostname="IN-KA-F220DE" tests="1" failures="1" errors="0" skipped="0" time="0">
-        <testcase classname="src/components/Home.test.js" name="src/components/Home.test.js" time="0">
-            <failure message="Expression expected" type="Error">
-Error: Expression expected
- ❯ getRollupError node_modules/vite/node_modules/rollup/dist/es/shared/parseAst.js:392:41
- ❯ convertProgram node_modules/vite/node_modules/rollup/dist/es/shared/parseAst.js:1056:26
- ❯ parseAstAsync node_modules/vite/node_modules/rollup/dist/es/shared/parseAst.js:1910:93
- ❯ ssrTransformScript node_modules/vite/dist/node/chunks/dep-mCdpKltl.js:52060:11
-
-            </failure>
+    <testsuite name="src/components/Home.test.tsx" timestamp="2024-07-30T11:11:29.933Z" hostname="IN-KA-F220DE" tests="1" failures="0" errors="0" skipped="0" time="0.016">
+        <testcase classname="src/components/Home.test.tsx" name="renders Home component" time="0.015">
         </testcase>
     </testsuite>
-    <testsuite name="src/components/Main.test.js" timestamp="2024-07-30T10:42:05.840Z" hostname="IN-KA-F220DE" tests="1" failures="1" errors="0" skipped="0" time="0">
-        <testcase classname="src/components/Main.test.js" name="src/components/Main.test.js" time="0">
-            <failure message="Expression expected" type="Error">
-Error: Expression expected
- ❯ getRollupError node_modules/vite/node_modules/rollup/dist/es/shared/parseAst.js:392:41
- ❯ convertProgram node_modules/vite/node_modules/rollup/dist/es/shared/parseAst.js:1056:26
- ❯ parseAstAsync node_modules/vite/node_modules/rollup/dist/es/shared/parseAst.js:1910:93
- ❯ ssrTransformScript node_modules/vite/dist/node/chunks/dep-mCdpKltl.js:52060:11
-
-            </failure>
-        </testcase>
-    </testsuite>
-    <testsuite name="Desktop/aws-cdk-workshop-shivangi-test/test/hitcounter.test.ts" timestamp="2024-07-30T10:42:05.840Z" hostname="IN-KA-F220DE" tests="1" failures="1" errors="0" skipped="0" time="0">
-        <testcase classname="Desktop/aws-cdk-workshop-shivangi-test/test/hitcounter.test.ts" name="Desktop/aws-cdk-workshop-shivangi-test/test/hitcounter.test.ts" time="0">
-            <failure message="Failed to resolve import &quot;aws-cdk-lib&quot; from &quot;Desktop/aws-cdk-workshop-shivangi-test/test/hitcounter.test.ts&quot;. Does the file exist?" type="Error">
-Error: Failed to resolve import &quot;aws-cdk-lib&quot; from &quot;Desktop/aws-cdk-workshop-shivangi-test/test/hitcounter.test.ts&quot;. Does the file exist?
- ❯ TransformPluginContext._formatError node_modules/vite/dist/node/chunks/dep-mCdpKltl.js:48945:41
- ❯ TransformPluginContext.error node_modules/vite/dist/node/chunks/dep-mCdpKltl.js:48940:16
- ❯ normalizeUrl node_modules/vite/dist/node/chunks/dep-mCdpKltl.js:63715:23
- ❯ node_modules/vite/dist/node/chunks/dep-mCdpKltl.js:63847:39
- ❯ TransformPluginContext.transform node_modules/vite/dist/node/chunks/dep-mCdpKltl.js:63774:7
- ❯ PluginContainer.transform node_modules/vite/dist/node/chunks/dep-mCdpKltl.js:48786:18
- ❯ loadAndTransform node_modules/vite/dist/node/chunks/dep-mCdpKltl.js:51608:27
-
-            </failure>
+    <testsuite name="src/components/Main.test.tsx" timestamp="2024-07-30T11:11:29.933Z" hostname="IN-KA-F220DE" tests="1" failures="0" errors="0" skipped="0" time="0.016">
+        <testcase classname="src/components/Main.test.tsx" name="renders Main component" time="0.015">
         </testcase>
     </testsuite>
 </testsuites>

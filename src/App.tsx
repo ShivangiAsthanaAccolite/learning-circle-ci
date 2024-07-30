@@ -1,8 +1,9 @@
-import './App.css';
+import "./App.css";
 
-import Home from './components/Home';
-import Main from './components/Main';
-import logo from './logo.svg';
+import Home from "./components/Home";
+import Main from "./components/Main";
+import React from "react";
+import logo from "./logo.svg";
 
 function App() {
   return (
