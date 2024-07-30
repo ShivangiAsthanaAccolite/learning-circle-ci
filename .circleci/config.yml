@@ -90,9 +90,9 @@ workflows:
       - build-node
         # requires:
         #   - test-node
-    # - deploy:
-    #     requires:
-    #       - build-node
+      - deploy:
+          requires:
+            - build-node
   hello_and_goodbye:
     # List of jobs that will run
     jobs:
