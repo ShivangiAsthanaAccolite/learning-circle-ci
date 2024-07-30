@@ -16,7 +16,7 @@ jobs:
           name: Run tests
           command: npm test --passWithNoTests
       - store_test_results:
-          path: test-results
+          path: ./reports/
   build-node:
     # Build node project
     executor: node/default
