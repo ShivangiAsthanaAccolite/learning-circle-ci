@@ -60,6 +60,19 @@ jobs:
       - image: cimg/base:2022.05
     steps:
       - run: echo "Say goodbye to YAML!"
+  test1:
+    macos:
+      xcode: 13.4.1
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Run tests
+          command: npx vitest run
+      - store_test_results:
+          path: ./test-results
 workflows:
   build-and-test:
     jobs:
@@ -75,3 +88,6 @@ workflows:
     jobs:
       - say_hello
       - say_goodbye
+  testvi:
+    jobs:
+      - test1
