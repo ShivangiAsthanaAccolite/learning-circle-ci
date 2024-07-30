@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="1" failures="0" errors="0" time="0.817">
-    <testsuite name="src/App.test.tsx" timestamp="2024-07-30T11:58:25.360Z" hostname="IN-KA-F220DE" tests="1" failures="0" errors="0" skipped="0" time="0.018">
-        <testcase classname="src/App.test.tsx" name="renders learn react link" time="0.017">
-        </testcase>
-    </testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="1" failures="0" errors="0" time="0.641">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2024-07-30T12:26:51" time="0.242" tests="1">
+    <testcase classname=" renders learn react link" name=" renders learn react link" time="0.017" file="src/App.test.tsx">
+    </testcase>
+  </testsuite>
 </testsuites>
