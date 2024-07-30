@@ -13,6 +13,9 @@ jobs:
           name: Install Dependencies
           command: npm install --legacy-peer-deps
       - run:
+          name: Create test-results directory
+          command: mkdir -p test-results
+      - run:
           name: Run tests
           command: npm test --passWithNoTests
       - store_test_results:
