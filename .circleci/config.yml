@@ -65,15 +65,23 @@ jobs:
       xcode: 13.4.1
     steps:
       - checkout
+      # - run:
+      #     name: Install dependencies
+      #     command: npm install --legacy-peer-deps
+      # - run:
+      #     name: Run tests
+      #     command: |
+      #       NODE_OPTIONS="--trace-deprecation" npx vitest run || true
+      # - store_test_results:
+      #     path: ./test-results
       - run:
-          name: Install dependencies
-          command: npm install --legacy-peer-deps
-      - run:
-          name: Run tests
-          command: |
-            NODE_OPTIONS="--trace-deprecation" npx vitest run || true
+          name: Run tests with JUnit as reporter
+          command: npm test -- --ci --reporters=default --reporters=jest-junit --outputFile=test-results/junit.xml
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: test-results
+            JEST_JUNIT_ADD_FILE_ATTRIBUTE: "true"
       - store_test_results:
-          path: ./test-results
+          path: test-results
 workflows:
   build:
     jobs:
