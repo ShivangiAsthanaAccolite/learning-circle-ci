@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="3" failures="0" errors="0" time="0.946">
-    <testsuite name="src/App.test.tsx" timestamp="2024-07-30T11:11:29.932Z" hostname="IN-KA-F220DE" tests="1" failures="0" errors="0" skipped="0" time="0.022">
-        <testcase classname="src/App.test.tsx" name="renders learn react link" time="0.021">
+<testsuites name="vitest tests" tests="3" failures="0" errors="0" time="0.83">
+    <testsuite name="src/App.test.tsx" timestamp="2024-07-30T11:33:44.899Z" hostname="IN-KA-F220DE" tests="1" failures="0" errors="0" skipped="0" time="0.024">
+        <testcase classname="src/App.test.tsx" name="renders learn react link" time="0.024">
         </testcase>
     </testsuite>
-    <testsuite name="src/components/Home.test.tsx" timestamp="2024-07-30T11:11:29.933Z" hostname="IN-KA-F220DE" tests="1" failures="0" errors="0" skipped="0" time="0.016">
-        <testcase classname="src/components/Home.test.tsx" name="renders Home component" time="0.015">
+    <testsuite name="src/components/Home.test.tsx" timestamp="2024-07-30T11:33:44.899Z" hostname="IN-KA-F220DE" tests="1" failures="0" errors="0" skipped="0" time="0.017">
+        <testcase classname="src/components/Home.test.tsx" name="renders Home component" time="0.016">
         </testcase>
     </testsuite>
-    <testsuite name="src/components/Main.test.tsx" timestamp="2024-07-30T11:11:29.933Z" hostname="IN-KA-F220DE" tests="1" failures="0" errors="0" skipped="0" time="0.016">
-        <testcase classname="src/components/Main.test.tsx" name="renders Main component" time="0.015">
+    <testsuite name="src/components/Main.test.tsx" timestamp="2024-07-30T11:33:44.900Z" hostname="IN-KA-F220DE" tests="1" failures="0" errors="0" skipped="0" time="0.017">
+        <testcase classname="src/components/Main.test.tsx" name="renders Main component" time="0.016">
         </testcase>
     </testsuite>
 </testsuites>
