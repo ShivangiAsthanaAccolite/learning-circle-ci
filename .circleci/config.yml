@@ -63,13 +63,15 @@ jobs:
   test1:
     macos:
       xcode: 13.4.1
+    parallelism: 2
+    resource_class: macos.m1.medium.gen1
     steps:
       - checkout
       - run:
           name: Install dependencies
           command: npm install --legacy-peer-deps
       # - run:
-      #     name: Run tests
+      #     name: Run tests with vitest
       #     command: |
       #       NODE_OPTIONS="--trace-deprecation" npx vitest run || true
       # - store_test_results:
