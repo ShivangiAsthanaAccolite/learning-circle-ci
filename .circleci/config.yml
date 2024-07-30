@@ -65,9 +65,9 @@ jobs:
       xcode: 13.4.1
     steps:
       - checkout
-      # - run:
-      #     name: Install dependencies
-      #     command: npm install --legacy-peer-deps
+      - run:
+          name: Install dependencies
+          command: npm install --legacy-peer-deps
       # - run:
       #     name: Run tests
       #     command: |
