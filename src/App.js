@@ -1,7 +1,9 @@
 import "./App.css";
 
+import Main from "./components/Main";
 import React from "react";
 import logo from "./logo.svg";
+
 function App() {
   return (
     <div className="App">
@@ -19,6 +21,8 @@ function App() {
           Learn React
         </a>
       </header>
+      <Main />
+      <Home />
     </div>
   );
 }
