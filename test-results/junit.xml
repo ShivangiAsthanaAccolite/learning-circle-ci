@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="3" failures="0" errors="0" time="0.83">
-    <testsuite name="src/App.test.tsx" timestamp="2024-07-30T11:33:44.899Z" hostname="IN-KA-F220DE" tests="1" failures="0" errors="0" skipped="0" time="0.024">
-        <testcase classname="src/App.test.tsx" name="renders learn react link" time="0.024">
-        </testcase>
-    </testsuite>
-    <testsuite name="src/components/Home.test.tsx" timestamp="2024-07-30T11:33:44.899Z" hostname="IN-KA-F220DE" tests="1" failures="0" errors="0" skipped="0" time="0.017">
-        <testcase classname="src/components/Home.test.tsx" name="renders Home component" time="0.016">
-        </testcase>
-    </testsuite>
-    <testsuite name="src/components/Main.test.tsx" timestamp="2024-07-30T11:33:44.900Z" hostname="IN-KA-F220DE" tests="1" failures="0" errors="0" skipped="0" time="0.017">
-        <testcase classname="src/components/Main.test.tsx" name="renders Main component" time="0.016">
+<testsuites name="vitest tests" tests="1" failures="1" errors="0" time="0.657">
+    <testsuite name="src/App.test.js" timestamp="2024-07-30T11:36:06.212Z" hostname="IN-KA-F220DE" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="src/App.test.js" name="src/App.test.js" time="0">
+            <failure message="Expression expected" type="Error">
+Error: Expression expected
+ ❯ getRollupError node_modules/rollup/dist/es/shared/parseAst.js:392:41
+ ❯ convertProgram node_modules/rollup/dist/es/shared/parseAst.js:1056:26
+ ❯ parseAstAsync node_modules/rollup/dist/es/shared/parseAst.js:1910:93
+ ❯ ssrTransformScript node_modules/vite/dist/node/chunks/dep-mCdpKltl.js:52060:11
+
+            </failure>
         </testcase>
     </testsuite>
 </testsuites>
