@@ -63,6 +63,7 @@ jobs:
   test1:
     macos:
       xcode: 13.4.1
+    parallelism: 2
     steps:
       - checkout
       - run:
