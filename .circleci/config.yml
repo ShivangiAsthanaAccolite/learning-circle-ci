@@ -82,8 +82,14 @@ jobs:
           name: Verify AWS CLI installation
           command: aws --version
       - run:
+          name: Create or verify the directory
+          command: |
+            mkdir -p testing-app
+            echo "Test file content" > testing-app/testfile.txt
+            ls -la testing-app
+      - run:
           name: Sync to S3
-          command: aws s3 sync my-circle-ci-app s3://circlecishivangi/deploy
+          command: aws s3 sync testing-app s3://circlecishivangi/deploy
   say_hello:
     macos:
       xcode: 13.4.1
