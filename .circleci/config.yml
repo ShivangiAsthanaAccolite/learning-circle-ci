@@ -42,13 +42,15 @@ jobs:
           destination: node-build
   deploy:
     # This is an example deploy job, not actually used by the workflow
-    macos:
-      xcode: 13.4.1
+    executor: node/default
     steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: "#e.g. ./deploy.sh"
+      - run: # Install the AWS CLI if it is not already included in the docker image
+          name: Install awscli
+          command: sudo pip install awscli
+      - run: # Deploy to S3 using the sync command
+          name: Deploy to S3
+          command: aws s3 sync my-circle-ci-app s3://circlecishivangi
+
   say_hello:
     macos:
       xcode: 13.4.1
