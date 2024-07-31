@@ -3,11 +3,8 @@
 version: 2.1
 orbs:
   node: circleci/node@5
+  aws-s3: circleci/aws-s3@3.1.1
 
-executors:
-  python-executor:
-    docker:
-      - image: circleci/python:3.8
 jobs:
   test-node:
     # Install node dependencies and run tests
@@ -47,49 +44,13 @@ jobs:
           destination: node-build
   deploy:
     # This is an example deploy job, not actually used by the workflow
-    # docker:
-    #   - image: cibuilds/aws:latest
-    # steps:
-    #   - checkout
-    #   # - run: # Install the AWS CLI if it is not already included in the docker image
-    #   #     name: Install awscli
-    #   #     command: sudo pip install awscli
-    #   - run:
-    #       name: Upgrade AWS CLI and dependencies
-    #       command: |
-    #         sudo pip install --upgrade awscli boto3 botocore
-    #   - run:
-    #       name: Verify AWS CLI installation
-    #       command: aws --version
-    #   - run: # Deploy to S3 using the sync command
-    #       name: Deploy to S3
-    #       command: aws s3 sync my-circle-ci-app s3://circlecishivangi
-    executor: python-executor
-    # environment:
-    #   AWS_ACCESS_KEY_ID: ASIAYS5JOJWIVEOFH2CM
-    #   AWS_SECRET_ACCESS_KEY: dklrtg4INzNMJ2gHSE6o+mM8zEH0+ddNiE5M657Q
-    #   AWS_DEFAULT_REGION: us-east-1
+    docker:
+      - image: circleci/node:current
     steps:
       - checkout
-      - run:
-          name: Install and upgrade AWS CLI and dependencies
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y python3-pip
-            pip install --upgrade pip
-            pip install --upgrade awscli boto3 botocore
-      - run:
-          name: Configure AWS CLI with environment variables
-          command: |
-            aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-            aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-            aws configure set default.region us-east-1
-      - run:
-          name: Verify AWS CLI installation
-          command: aws --version
-      - run:
-          name: Sync to S3
-          command: aws s3 sync src s3://circlecishivangi/deploy
+      - aws-s3/sync:
+          from: ./
+          to: "s3://circlecishivangi"
   say_hello:
     macos:
       xcode: 13.4.1
