@@ -42,11 +42,12 @@ jobs:
           destination: node-build
   deploy:
     # This is an example deploy job, not actually used by the workflow
-    executor: node/default
+    docker:
+      - image: cibuilds/aws:latest
     steps:
       - run: # Install the AWS CLI if it is not already included in the docker image
           name: Install awscli
-          command: sudo npm install awscli
+          command: sudo pip install awscli
       - run: # Deploy to S3 using the sync command
           name: Deploy to S3
           command: aws s3 sync my-circle-ci-app s3://circlecishivangi
