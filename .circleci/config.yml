@@ -72,13 +72,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Verify directory existence
-          command: |
-            if [ ! -d "my-circle-ci-app" ]; then
-              echo "Directory my-circle-ci-app does not exist"
-              exit 1
-            fi
-      - run:
           name: Install and upgrade AWS CLI and dependencies
           command: |
             sudo apt-get update
@@ -95,11 +88,8 @@ jobs:
           name: Verify AWS CLI installation
           command: aws --version
       - run:
-          name: List contents of my-circle-ci-app
-          command: ls -la my-circle-ci-app
-      - run:
           name: Sync to S3
-          command: aws s3 sync my-circle-ci-app s3://circlecishivangi/deploy
+          command: aws s3 sync src s3://circlecishivangi/deploy
   say_hello:
     macos:
       xcode: 13.4.1
