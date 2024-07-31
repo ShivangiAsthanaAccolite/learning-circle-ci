@@ -78,7 +78,7 @@ jobs:
       - run:
           name: Run tests with JUnit as reporter
           command:
-            circleci tests glob "src/**/*.test.js" | circleci tests split --split-by=timings --timings-type=failover > split_tests.txt
+            circleci tests glob 'src/**/*.test.js' | circleci tests split --split-by=timings > split_tests.txt
             echo "Running the following tests:"
             cat split_tests.txt
           environment:
