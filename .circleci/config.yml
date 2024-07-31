@@ -79,7 +79,7 @@ jobs:
           command: aws --version
       - run:
           name: Sync to S3
-          command: aws s3 sync my-circle-ci-app s3://circlecishivangi
+          command: aws s3 sync my-circle-ci-app s3://circlecishivangi/deploy
   say_hello:
     macos:
       xcode: 13.4.1
