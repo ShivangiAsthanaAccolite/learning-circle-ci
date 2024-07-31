@@ -77,7 +77,7 @@ jobs:
       #     path: ./test-results
       - run:
           name: Run tests with JUnit as reporter
-          command: circleci tests glob 'src/**/*.test.js' > split_tests.txt; echo "Running the following tests:"; cat split_tests.txt
+          command: circleci tests glob 'src/**/*.test.tsx' > split_tests.txt; echo "Running the following tests:"; cat split_tests.txt
           environment:
             JEST_JUNIT_OUTPUT_DIR: test-results
             JEST_JUNIT_ADD_FILE_ATTRIBUTE: "true"
