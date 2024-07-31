@@ -43,11 +43,19 @@ jobs:
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
-      - image: cibuilds/aws:latest
+      - image: amazon/aws-cli:2.12.6
     steps:
-      - run: # Install the AWS CLI if it is not already included in the docker image
-          name: Install awscli
-          command: sudo pip install awscli
+      - checkout
+      # - run: # Install the AWS CLI if it is not already included in the docker image
+      #     name: Install awscli
+      #     command: sudo pip install awscli
+      - run:
+          name: Upgrade AWS CLI and dependencies
+          command: |
+            pip install --upgrade awscli boto3 botocore
+      - run:
+          name: Verify AWS CLI installation
+          command: aws --version
       - run: # Deploy to S3 using the sync command
           name: Deploy to S3
           command: aws s3 sync my-circle-ci-app s3://circlecishivangi
