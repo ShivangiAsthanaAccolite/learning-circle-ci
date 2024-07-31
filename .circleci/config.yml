@@ -61,8 +61,7 @@ jobs:
     steps:
       - run: echo "Say goodbye to YAML!"
   test1:
-    docker:
-      - image: cimg/base:2022.05
+    executor: node/default
     parallelism: 2
     steps:
       - checkout
