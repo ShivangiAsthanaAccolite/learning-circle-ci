@@ -77,10 +77,7 @@ jobs:
       - run:
           name: Run tests with JUnit as reporter
           command: |
-            circleci tests glob 'src/**/*.test.*' | circleci tests split --split-by=timings > split_tests.txt
-            echo "Running the following tests:"
-            cat split_tests.txt
-            cat split_tests.txt | xargs npm test --ci --reporters=default --reporters=jest-junit --outputFile=test-results/junit.xml
+            command: circleci tests glob 'src/**/*.test.*' > split_tests.txt; echo "Running the following tests:"; cat split_tests.txt
           environment:
             JEST_JUNIT_OUTPUT_DIR: test-results
             JEST_JUNIT_ADD_FILE_ATTRIBUTE: "true"
