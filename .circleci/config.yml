@@ -65,10 +65,10 @@ jobs:
     #       name: Deploy to S3
     #       command: aws s3 sync my-circle-ci-app s3://circlecishivangi
     executor: python-executor
-    environment:
-      AWS_ACCESS_KEY_ID: ASIAYS5JOJWIVEOFH2CM
-      AWS_SECRET_ACCESS_KEY: dklrtg4INzNMJ2gHSE6o+mM8zEH0+ddNiE5M657Q
-      AWS_DEFAULT_REGION: us-east-1
+    # environment:
+    #   AWS_ACCESS_KEY_ID: ASIAYS5JOJWIVEOFH2CM
+    #   AWS_SECRET_ACCESS_KEY: dklrtg4INzNMJ2gHSE6o+mM8zEH0+ddNiE5M657Q
+    #   AWS_DEFAULT_REGION: us-east-1
     steps:
       - checkout
       - run:
