@@ -1,81 +1,81 @@
 import RenderCharacters, { GET_CHARACTERS } from "./RenderCharacters";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
-import { MockedProvider } from "@apollo/client/testing";
 import React from "react";
+import { useQuery } from "@apollo/client";
 
-const mocks = [
-  {
-    request: {
-      query: GET_CHARACTERS,
-    },
-    result: {
-      data: {
-        characters: {
-          results: [
-            {
-              id: "1",
-              name: "Rick Sanchez",
-              status: "Alive",
-              species: "Human",
-              gender: "Male",
-              origin: {
-                name: "Earth (C-137)",
-                dimension: "Dimension C-137",
-              },
-              image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-            },
-            {
-              id: "2",
-              name: "Morty Smith",
-              status: "Alive",
-              species: "Human",
-              gender: "Male",
-              origin: {
-                name: "unknown",
-                dimension: null,
-              },
-              image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-            },
-            // Add additional character objects here
-            {
-              id: "3",
-              name: "Summer Smith",
-              status: "Alive",
-              species: "Human",
-              gender: "Female",
-              origin: {
-                name: "Earth (Replacement Dimension)",
-                dimension: "Replacement Dimension",
-              },
-              image: "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
-            },
-            // ... other characters
-          ],
+// Mock the useQuery hook from Apollo Client
+jest.mock("@apollo/client", () => ({
+  ...jest.requireActual("@apollo/client"),
+  useQuery: jest.fn(),
+}));
+
+const mockCharactersData = {
+  characters: {
+    results: [
+      {
+        id: "1",
+        name: "Rick Sanchez",
+        status: "Alive",
+        species: "Human",
+        gender: "Male",
+        origin: {
+          name: "Earth (C-137)",
+          dimension: "Dimension C-137",
         },
+        image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
       },
-    },
+      {
+        id: "2",
+        name: "Morty Smith",
+        status: "Alive",
+        species: "Human",
+        gender: "Male",
+        origin: {
+          name: "unknown",
+          dimension: null,
+        },
+        image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+      },
+      {
+        id: "3",
+        name: "Summer Smith",
+        status: "Alive",
+        species: "Human",
+        gender: "Female",
+        origin: {
+          name: "Earth (Replacement Dimension)",
+          dimension: "Replacement Dimension",
+        },
+        image: "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+      },
+      // Add additional character objects here if needed
+    ],
   },
-];
+};
 
-test("renders RenderCharacters component", async () => {
-  render(
-    <MockedProvider mocks={mocks} addTypename={false}>
-      <RenderCharacters />
-    </MockedProvider>
-  );
+describe("RenderCharacters Component", () => {
+  it("displays loading state initially", () => {
+    (useQuery as jest.Mock).mockReturnValue({ loading: true });
+    render(<RenderCharacters />);
+    expect(screen.getByText("Loading...")).toBeInTheDocument();
+  });
 
-  // Check for the loading state
-  expect(screen.getByText("Loading...")).toBeInTheDocument();
+  it("displays error state", () => {
+    (useQuery as jest.Mock).mockReturnValue({
+      error: new Error("Failed to fetch"),
+    });
+    render(<RenderCharacters />);
+    expect(screen.getByText("Error: Failed to fetch")).toBeInTheDocument();
+  });
 
-  // Wait for the results to be rendered
-  await waitFor(() =>
-    expect(screen.getByText("All Characters")).toBeInTheDocument()
-  );
-
-  // Check if specific characters are rendered
-  expect(screen.getByText("Rick Sanchez")).toBeInTheDocument();
-  expect(screen.getByText("Morty Smith")).toBeInTheDocument();
-  expect(screen.getByText("Summer Smith")).toBeInTheDocument();
-  // Add more assertions as needed
+  it("displays characters data", () => {
+    (useQuery as jest.Mock).mockReturnValue({ data: mockCharactersData });
+    render(<RenderCharacters />);
+    expect(screen.getByText("All Characters")).toBeInTheDocument();
+    expect(screen.getByText("Rick Sanchez")).toBeInTheDocument();
+    expect(screen.getByText("Morty Smith")).toBeInTheDocument();
+    expect(screen.getByText("Summer Smith")).toBeInTheDocument();
+    // Add more assertions as needed
+  });
 });
