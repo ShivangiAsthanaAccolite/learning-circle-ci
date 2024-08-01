@@ -2,7 +2,13 @@ import RenderCharacters, { GET_CHARACTERS } from "./RenderCharacters";
 import { render, screen } from "@testing-library/react";
 
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+
+// Mock the useNavigate hook
+jest.mock("react-router-dom", () => ({
+  useNavigate: () => jest.fn(),
+}));
 
 // Mock the useQuery hook from Apollo Client
 jest.mock("@apollo/client", () => ({

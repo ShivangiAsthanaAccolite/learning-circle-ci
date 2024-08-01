@@ -5,6 +5,6 @@ import React from "react";
 
 test("renders App component", () => {
   render(<App />);
-  const text = screen.getByText("App Component");
-  expect(text).toBeInTheDocument();
+  expect(screen.getByText(/Home/i)).toBeInTheDocument();
+  expect(screen.getByText(/Characters/i)).toBeInTheDocument();
 });
